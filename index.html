@@ -1,11 +1,56 @@
-if (alreadyTappedToday) {
-  show("Come back tomorrow.");
-} else {
-  showButtons();
-}
-
-onTap(category) {
-  sendToAPI(category);
-  lockUI();
-  show("Recorded.");
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What did you almost do today?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>What did you almost do today?</h1>
+    <div class="button-container">
+        <button onclick="recordAction('Almost quit')">Almost quit</button>
+        <button onclick="recordAction('Almost bought')">Almost bought</button>
+        <button onclick="recordAction('Almost said something')">Almost said something</button>
+        <button onclick="recordAction('Almost left')">Almost left</button>
+        <button onclick="recordAction('Almost changed something')">Almost changed something</button>
+        <button onclick="recordAction('Almost reached out')">Almost reached out</button>
+        <button onclick="recordAction('Almost gave up')">Almost gave up</button>
+        <button onclick="recordAction('Almost started')">Almost started</button>
+        <button onclick="recordAction('Almost waited')">Almost waited</button>
+    </div>
+    <script>
+        function recordAction(action) {
+            alert('Recorded: ' + action);
+        }
+    </script>
+</body>
+</html>
