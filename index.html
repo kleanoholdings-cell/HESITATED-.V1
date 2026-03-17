@@ -3,73 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What did you almost do today?</title>
-    <link href="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/supabase.js" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-        }
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #6200ea;
-            color: white;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #3700b3;
-        }
-    </style>
+    <title>My Page</title>
 </head>
 <body>
-    <div class="container">
-        <h1>What did you almost do today?</h1>
-        <button onclick="recordAction('Action 1')">Action 1</button>
-        <button onclick="recordAction('Action 2')">Action 2</button>
-        <button onclick="recordAction('Action 3')">Action 3</button>
-        <button onclick="recordAction('Action 4')">Action 4</button>
-        <button onclick="recordAction('Action 5')">Action 5</button>
-        <button onclick="recordAction('Action 6')">Action 6</button>
-        <button onclick="recordAction('Action 7')">Action 7</button>
-        <button onclick="recordAction('Action 8')">Action 8</button>
-        <button onclick="recordAction('Action 9')">Action 9</button>
-    </div>
-    <script>
-        const { createClient } = supabase;
-        const supabaseUrl = 'https://vkqmdjkhklgkbahcyobl.supabase.co';
-        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrcW1kamtoa2xna2JhaGN5b2JsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3NjY5NjIsImV4cCI6MjA4OTM0Mjk2Mn0.DSRzgGnE_1ehJ800OGMgL-wezrtLsMRLywZbJmzFRk0';
-        const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-        async function recordAction(action) {
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => button.disabled = true);
-
-            const { data, error } = await supabase
-                .from('almost_actions')
-                .insert([{ action: action, timestamp: new Date().toISOString() }]);
-
-            if (error) {
-                console.error('Error recording action:', error);
-                return;
-            }
-            alert('Recorded.');
-            setTimeout(() => {
-                buttons.forEach(button => button.disabled = false);
-            }, 2000);
-        }
-    </script>
+    <button>Almost quit</button>
+    <button>Almost bought</button>
+    <button>Almost said something</button>
+    <button>Almost left</button>
+    <button>Almost changed something</button>
+    <button>Almost reached out</button>
+    <button>Almost gave up</button>
+    <button>Almost started</button>
+    <button>Almost waited</button>
 </body>
 </html>
