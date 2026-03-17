@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hesitated</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui;
+      background: #0f0f0f;
+      color: white;
+      padding: 40px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 10px 0;
+      padding: 14px;
+      background: #1f1f1f;
+      color: white;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+
+<h1>What did you almost do today?</h1>
+
+<div id="buttons"></div>
+<p id="status"></p>
+
+<script>
+const categories = [
+  "Almost quit",
+  "Almost bought",
+  "Almost said something",
+  "Almost left",
+  "Almost changed something",
+  "Almost reached out",
+  "Almost gave up",
+  "Almost started",
+  "Almost waited"
+];
+
+const status = document.getElementById("status");
+const container = document.getElementById("buttons");
+
+const lastTap = localStorage.getItem("last_tap");
+const now = Date.now();
+
+if (lastTap && now - lastTap < 86400000) {
+  status.innerText = "Come back tomorrow.";
+} else {
+  categories.forEach((label, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+
+    btn.onclick = () => {
+      localStorage.setItem("last_tap", now);
+      localStorage.setItem("last_choice", label);
+
+      status.innerText = "Recorded.";
+      container.innerHTML = "";
+    };
+
+    container.appendChild(btn);
+  });
+}
+</script>
+
+</body>
+</html>
