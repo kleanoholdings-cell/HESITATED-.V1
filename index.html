@@ -1,1 +1,11 @@
-<!DOCTYPE html><html><head><title>HESITATED V1</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; } .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); } h1 { color: #667eea; margin-top: 0; } .status { background: #e8f4f8; border-left: 4px solid #667eea; padding: 15px; margin: 20px 0; border-radius: 4px; } a { color: #667eea; text-decoration: none; } a:hover { text-decoration: underline; }</style></head><body><div class="container"><h1>🚀 HESITATED V1</h1><p>Welcome to the HESITATED V1 project!</p><div class="status"><strong>Status:</strong> Site is live and running on GitHub Pages</div><p>This is your GitHub Pages site. You can customize this page by editing the <code>index.html</code> file in your repository.</p><p><a href="https://github.com/kleanoholdings-cell/HESITATED-.V1">View on GitHub</a></p></div></body></html>
+if (alreadyTappedToday) {
+  show("Come back tomorrow.");
+} else {
+  showButtons();
+}
+
+onTap(category) {
+  sendToAPI(category);
+  lockUI();
+  show("Recorded.");
+}
